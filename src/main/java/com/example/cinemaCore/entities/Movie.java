@@ -31,10 +31,9 @@ public class Movie {
 
     @ElementCollection
     @CollectionTable(name = "movie_cast")
-    private Set<String> moiveCast;
+    private Set<String> movieCast;
 
     @Column(nullable = false)
-    @NotBlank(message = "Movie's release year should not be empty")
     private Integer releaseYear;
 
     @Column(nullable = false)
