@@ -1,6 +1,8 @@
 package com.example.cinemaCore.service;
 
 import com.example.cinemaCore.dto.MovieDto;
+import com.example.cinemaCore.dto.MoviePageResponse;
+import com.example.cinemaCore.exceptions.FileDeleteException;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -10,4 +12,8 @@ public interface MovieService {
     MovieDto addMovie(MovieDto movieDto, MultipartFile file) throws IOException;
     MovieDto getMovie(Integer movieId);
     List<MovieDto> getAllMovies();
+    MovieDto updateMovie(Integer movieId, MovieDto movieDto, MultipartFile file) throws IOException;
+    String deleteMovie(Integer movieId) throws IOException, FileDeleteException;
+    MoviePageResponse getAllMovieWithPagination(Integer pageNumber, Integer pageSize);
+    MoviePageResponse getAllMovieWithPaginationWithSorting(Integer pageNumber, Integer pageSize, String sortBy, String dir);
 }

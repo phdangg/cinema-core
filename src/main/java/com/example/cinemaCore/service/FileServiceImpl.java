@@ -18,7 +18,7 @@ public class FileServiceImpl implements FileService{
         File f = new File(path);
         if (!f.exists()) f.mkdir();
 
-        Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+        Files.copy(file.getInputStream(), Paths.get(filePath));
 
         return fileName;
     }
