@@ -1,5 +1,6 @@
 package com.example.cinemaCore.controllers;
 
+import com.example.cinemaCore.auth.entities.RequestTest;
 import com.example.cinemaCore.dto.MovieDto;
 import com.example.cinemaCore.dto.MoviePageResponse;
 import com.example.cinemaCore.exceptions.EmptyFileException;
@@ -27,6 +28,10 @@ public class MovieController {
         this.movieService = movieService;
     }
 
+    @PostMapping("/test")
+    public ResponseEntity<String> test(@RequestBody RequestTest request) {
+        return ResponseEntity.ok(request.getABC().toString());
+    }
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping
     public ResponseEntity<MovieDto> addMovieHandler(@RequestPart MultipartFile file,
